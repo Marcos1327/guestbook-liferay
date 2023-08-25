@@ -17,6 +17,7 @@ package com.liferay.docs.guestbook.service;
 import com.liferay.docs.guestbook.model.Guestbook;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.util.OrderByComparator;
 
@@ -104,6 +105,14 @@ public class GuestbookLocalServiceUtil {
 		throws PortalException {
 
 		return getService().deleteGuestbook(guestbookId);
+	}
+
+	public static Guestbook deleteGuestbook(
+			long guestbookId,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException, SystemException {
+
+		return getService().deleteGuestbook(guestbookId, serviceContext);
 	}
 
 	/**
@@ -364,6 +373,15 @@ public class GuestbookLocalServiceUtil {
 	 */
 	public static Guestbook updateGuestbook(Guestbook guestbook) {
 		return getService().updateGuestbook(guestbook);
+	}
+
+	public static Guestbook updateGuestbook(
+			long userId, long guestbookId, String name,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException, SystemException {
+
+		return getService().updateGuestbook(
+			userId, guestbookId, name, serviceContext);
 	}
 
 	public static GuestbookLocalService getService() {

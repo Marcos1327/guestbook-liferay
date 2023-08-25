@@ -18,6 +18,7 @@
 <%@ page import="com.liferay.docs.guestbook.service.GuestbookEntryLocalServiceUtil" %>
 <%@ page import="com.liferay.docs.guestbook.service.GuestbookLocalServiceUtil" %>
 <%@ page import="com.liferay.docs.guestbook.model.GuestbookEntry" %> 
+<%@ page import="com.liferay.petra.string.StringPool" %>
 
 <liferay-theme:defineObjects />
 
