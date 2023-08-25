@@ -97,24 +97,25 @@ public class GuestBookPortlet extends MVCPortlet {
 		}
 	}
 	
-	@SuppressWarnings("deprecation")
-	public void deleteEntry(ActionResponse response, ActionRequest request) throws PortalException {
-		
-		long entryId = ParamUtil.getLong(request, "entryId");
-		long guestbookId = ParamUtil.getLong(request, "guestbookId");
-		
-		ServiceContext serviceContext = ServiceContextFactory.getInstance(GuestbookEntry.class.getName(), request);
-		
-		try {
-			
-			response.setRenderParameter("guestbookId", Long.toString(guestbookId));
-			
-			_guestbookEntryLocalService.deleteGuestbookEntry(entryId);
-			
-		}catch (Exception e) {
-			Logger.getLogger(GuestBookPortlet.class.getName()).log(Level.SEVERE, null, e);
-		}
-		
+	public void deleteEntry(ActionRequest request, ActionResponse response) throws PortalException {
+        long entryId = ParamUtil.getLong(request, "entryId");
+        long guestbookId = ParamUtil.getLong(request, "guestbookId");
+
+        ServiceContext serviceContext = ServiceContextFactory.getInstance(
+            GuestbookEntry.class.getName(), request);
+
+        try {
+
+            response.setRenderParameter(
+                "guestbookId", Long.toString(guestbookId));
+
+            _guestbookEntryLocalService.deleteGuestbookEntry(entryId);
+        }
+
+        catch (Exception e) {
+            Logger.getLogger(GuestBookPortlet.class.getName()).log(
+                Level.SEVERE, null, e);
+        }
 	}
 	
 	@Override

@@ -30,7 +30,7 @@ long guestbookId = Long.valueOf((Long) renderRequest
 
     <liferay-ui:search-container-column-text property="name" />
 
-    <liferay-ui:search-container-column-jsp
+    <liferay-ui:search-container-column-jsp name="actions"
         align="right" 
         path="/guestbook/entry_actions.jsp" />
 
